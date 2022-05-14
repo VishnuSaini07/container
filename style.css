@@ -50,7 +50,7 @@ body {
   transform: scale(1.05);
   transition: 0.3s;
 }
-.card img {
+.card a img {
  width: 100px;
  padding-top: 2rem;
 }
