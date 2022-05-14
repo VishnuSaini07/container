@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">QuizMania</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Contact</a>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </nav>
+
+    <h1 class="heading text-center">Login</h1>
+
+
+  <div class="container">
+    <form>
+      <input type="text" placeholder="username" id="userInp" class="form-control mb-3">
+      <input type="password" placeholder="Password" id="passInp" class="form-control mb-3">
+      <div class="custom-control custom-switch mb-3">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1">Keep me logged in</label>
+      </div>
+      <button type="text" id="sub_btn" class="btn btn-primary mb-3 w-100">Login</button>
+      <a href="signup.html" class="btn btn-danger py-1 w-100">Want to Create A New Account</a>
+    </form>
+  </div>
+
+  <script type="module">
+  //---------------------------FIREBASE CONFIG------------------------
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js";
+
+    import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/firebasejs/9.8.0/firebase-database.js";
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyA2e23S7f2d5XR4D-_kYew6Sa1cdeq9S_c",
+        authDomain: "fir-project-c457f.firebaseapp.com",
+        databaseURL: "https://fir-project-c457f-default-rtdb.firebaseio.com",
+        projectId: "fir-project-c457f",
+        storageBucket: "fir-project-c457f.appspot.com",
+        messagingSenderId: "992188218150",
+        appId: "1:992188218150:web:006c4d414b412b1516dfe7"
+      };
+  
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+
+    
+//---------------------REFRENCES-----------------------------
+
+    const username = document.getElementById('userInp');
+    const pass = document.getElementById('passInp');
+    const submit = document.getElementById('sub_btn');
+
+//-----------------AUTHENTICATION PROCESS----------------------
+
+    function AuthenticateUser() {
+      const dbref = ref(db);
+
+      get(child(dbref, "UsersList/" + username.value)).then((snapshot) => {
+        if(snapshot.exists()) {
+          let dbpass = decPass(snapshot.val().password);
+          if(dbpass == pass.value) {
+            login(snapshot.val());
+          } else {
+              alert("User does not exist");
+          }
+        }
+        else {
+          alert("Username or Password is invalid");
+        }
+      });
+    }
+
+  //------------------------DECRYPT PROCESS------------------------
+
+  function decPass(dbpass) {
+    var pass12 = CryptoJS.AES.decrypt(dbpass, pass.value);
+    return pass12.toString(CryptoJS.enc.Utf8);
+  }
+
+  //----------------------------LOGIN-------------------------------
+
+  function login(user) {
+    let keepLoggedIn = document.getElementById('customSwitch1').checked;
+
+    if(!keepLoggedIn) {
+      sessionStorage.setItem('user', JSON.stringify(user));
+      window.location = 'index.html';
+    }
+    else {
+      localStorage.setItem('keepLoggedIn', 'yes');
+      localStorage.setItem('user', JSON.stringify(user));
+      window.location = "index.html";
+    }
+  }
+
+  //--------------------ASSIGN THE EVENTS---------------------------
+    
+    submit.addEventListener('click', AuthenticateUser);
+
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
