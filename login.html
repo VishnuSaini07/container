@@ -32,7 +32,6 @@
 
     <h1 class="heading text-center">Login</h1>
 
-
   <div class="container">
     <form>
       <input type="text" placeholder="username" id="userInp" class="form-control mb-3">
@@ -74,10 +73,12 @@
 
 //-----------------AUTHENTICATION PROCESS----------------------
 
-    function AuthenticateUser() {
+    function AuthenticateUser(e) {
+      e.preventDefault();
       const dbref = ref(db);
 
       get(child(dbref, "UsersList/" + username.value)).then((snapshot) => {
+        console.log(snapshot);
         if(snapshot.exists()) {
           let dbpass = decPass(snapshot.val().password);
           if(dbpass == pass.value) {

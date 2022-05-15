@@ -1,0 +1,45 @@
+.container {
+  width: 50vw;
+  margin-top: 1.5rem;
+}
+.row {
+  padding-top: 4rem;
+}
+.card {
+  /* background-color: red; */
+  min-height: 60vh;
+  padding: 2rem 4rem;
+}
+.card:hover {
+  transform: scale(1);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .heading {
+    font-size: 60px;
+    top: 4rem;
+  }
+  .container {
+    margin-top: 0;
+    width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  .heading {
+    font-size: 50px;
+    /* top: 4rem; */
+  }
+}

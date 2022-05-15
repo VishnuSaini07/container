@@ -1,29 +1,29 @@
 //------------------------------------REFRENCES--------------------------
 
-  let userlink = document.getElementById('userlink');
-  let signoutlink = document.getElementById('signoutlink');
-  // let FullName = document.getElementById('fullName');
-  let practice = document.getElementById('practice');
-  var currentUser = null;
+let userlink = document.getElementById('userlink');
+let signoutlink = document.getElementById('signoutlink');
+let FullName = document.getElementById('fullName');
+let email = document.getElementById('email');
+var currentUser = null;
 
 //------------------------------------FUNCTIONS--------------------------------
 
-  function getUsername() {
-    let keepLoggedIn = localStorage.getItem("keepLoggedIn");
+function getUsername() {
+  let keepLoggedIn = localStorage.getItem("keepLoggedIn");
 
-    if(keepLoggedIn == 'yes') {
-      currentUser = JSON.parse(localStorage.getItem('user'));
-    } else {
-      currentUser = JSON.parse(sessionStorage.getItem('user'));
-    }
+  if(keepLoggedIn == 'yes') {
+    currentUser = JSON.parse(localStorage.getItem('user'));
+  } else {
+    currentUser = JSON.parse(sessionStorage.getItem('user'));
   }
+}
 
-  function Signout() {
-    sessionStorage.removeItem('user');
-    localStorage.removeItem('user');
-    localStorage.removeItem('keepLoggedIn');
-    window.location = 'index.html';
-  }
+function Signout() {
+  sessionStorage.removeItem('user');
+  localStorage.removeItem('user');
+  localStorage.removeItem('keepLoggedIn');
+  window.location = 'index.html';
+}
 
 //---------------------------------------WINDOWS LOADS--------------------
 
@@ -39,13 +39,12 @@ window.onload = function() {
     signoutlink.classList.replace('nav-link', 'btn');
     signoutlink.classList.add('btn-success');
     signoutlink.href = 'login.html';
-
-    practice.href = "login.html";
   }
 
   else {
-    userlink.innerText = currentUser.username;
-    // FullName.innerHTML = currentUser.fullname;
+    FullName.innerHTML = 'Name : ' + `<b>${currentUser.fullname}</b>`;
+    userlink.innerHTML = 'Name : ' + `<b>${currentUser.username}</b>`;
+    email.innerHTML = 'Email : ' + `<b>${currentUser.email}</b>`;
     userlink.classList.replace('btn', 'nav-link');
     userlink.classList.remove('btn-primary');
     userlink.href = 'userProfile.html';
@@ -54,7 +53,5 @@ window.onload = function() {
     signoutlink.classList.replace('btn', 'nav-link');
     signoutlink.classList.remove('btn-success');
     signoutlink.href = 'javascript:Signout()';
-
-    practice.href = 'quizCategory.html';
   }
 }

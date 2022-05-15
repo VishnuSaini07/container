@@ -35,8 +35,8 @@
   <div class="container">
     <form>
       <input type="text" placeholder="Fullname" id="nameInp" class="form-control mb-3" required>
-      <input type="email" placeholder="Email" id="emailInp" class="form-control mb-3" required>
       <input type="text" placeholder="username" id="userInp" class="form-control mb-3" required>
+      <input type="email" placeholder="Email" id="emailInp" class="form-control mb-3" required>
       <input type="password" placeholder="Password" id="passInp" class="form-control mb-3" required>
       <button type="text" id="sub_btn" class="btn btn-primary mb-3 w-100">Sign Up</button>
       <a href="login.html" class="btn btn-danger py-1 w-100">Already Have an Account</a>
@@ -106,7 +106,9 @@
   
   //----------------------REGISTER USER TO FIREBASE----------------
 
-    function RegisterUser() {
+    function RegisterUser(e) {
+      e.preventDefault();
+
       // if(!Validation()) {
       //   return;
       // };

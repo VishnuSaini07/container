@@ -15,9 +15,9 @@ body {
   font-size: 20px;
 }
 .container {
-  text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-bottom: 1rem;
   min-height: 60vh;
   width: 70vw;
   border-radius: 12px;
@@ -71,7 +71,6 @@ body {
   0 41.8px 33.4px rgba(0, 0, 0, 0.086),
   0 100px 80px rgba(0, 0, 0, 0.12);
 }
-
 @media (max-width: 1024px) {
   .row {
     padding-top: 5rem;
@@ -92,5 +91,12 @@ body {
   .container {
     margin-top: 0;
     width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  .heading {
+    font-size: 50px;
+    /* top: 4rem; */
   }
 }

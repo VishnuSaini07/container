@@ -1,0 +1,87 @@
+[
+  {
+  "title": "HTML",
+  "image" : "https://cdn-icons-png.flaticon.com/512/1051/1051328.png",
+  "tagLine": "The language for building web pages",
+  "url": "https://www.w3schools.com/html/default.asp"
+  },
+  {
+  "title": "CSS",
+  "image" : "https://cdn-icons-png.flaticon.com/512/732/732007.png",
+  "tagLine": "The language for styling web pages",
+  "url": "https://www.w3schools.com/css/default.asp"
+  },
+  {
+  "title": "JavaScript",
+  "image" : "https://i.ibb.co/r0VYw2X/java-script.png",
+  "tagLine": "The language for programming web pages",
+  "url": "https://www.w3schools.com/js/default.asp"
+  },
+  {
+  "title": "Python",
+  "image" : "https://cdn-icons-png.flaticon.com/512/1822/1822920.png",
+  "tagLine": "A popular programming language",
+  "url": "https://www.w3schools.com/python/default.asp"
+  },
+  {
+    "title": "SQL",
+    "image" : "https://i.ibb.co/vhFXL41/sql-file-symbol.png",
+    "tagLine": "A language for accessing databases",
+    "url": "https://www.w3schools.com/sql/default.asp"
+  },
+  {
+    "title": "PHP",
+    "image" : "https://img.icons8.com/ios-filled/452/php-logo.png",
+    "tagLine": "A web server programming language",
+    "url": "https://www.w3schools.com/php/default.asp"
+  },
+  {
+    "title": "Java",
+    "image" : "https://cdn-icons-png.flaticon.com/512/152/152760.png",
+    "tagLine": "A programming language",
+    "url": "https://www.w3schools.com/java/default.asp"
+  },
+    {
+    "title": "jQuery",
+    "image" : "https://img.icons8.com/ios-filled/452/jquery.png",
+    "tagLine": "A JS library for developing web pages",
+    "url": "https://www.w3schools.com/jquery/default.asp"
+  },
+    {
+    "title": "C",
+    "image" : "https://i.ibb.co/VjjpbkH/icons8-c-programming-480.png",
+    "tagLine": "A programming language",
+    "url": "https://www.w3schools.com/c/index.php"
+  },
+  {
+    "title": "C++",
+    "image" : "https://i.ibb.co/pn91NqK/cib-cplusplus.png",
+    "tagLine": "A programming language",
+    "url": "https://www.w3schools.com/cpp/default.asp"
+  },
+  {
+  "title": "Bootstrap",
+  "image" : "https://cdn-icons-png.flaticon.com/512/5968/5968671.png",
+  "tagLine": "A CSS framework for designing better web pages",
+  "url": "https://www.w3schools.com/bootstrap/bootstrap_ver.asp"
+  },
+  {
+    "title": "Node.js",
+    "image": "https://img.icons8.com/small/452/nodejs.png",
+    "tagLine": "back-end JavaScript runtime environment",
+    "url": "https://www.w3schools.com/nodejs/default.asp"
+  },
+  {
+    "title": "React",
+    "image": "https://cdn-icons-png.flaticon.com/512/3393/3393920.png",
+    "tagLine": "React is a JavaScript library for building user interfaces",
+    "url": "https://www.w3schools.com/react/default.asp"
+  },
+  {
+    "title": "JSON",
+    "image": "https://cdn-icons-png.flaticon.com/512/6577/6577207.png",
+    "tagLine": "JSON is a format for storing and transporting data",
+    "url": "https://www.w3schools.com/js/js_json.asp"
+  }
+]
+
